@@ -1,0 +1,132 @@
+{
+  "name": "agenticros-skill-roboparts",
+  "version": "0.1.0",
+  "description": "RoboParts compatibility registry — 865 robot component entities, 20 categories, 4D compatibility check (protocol/electrical/mechanical/software). Vendor-neutral: we neither manufacture nor resell any part.",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "agenticros",
+    "roboparts",
+    "robot-parts",
+    "compatibility",
+    "humanoid-robot",
+    "urdf",
+    "mcp",
+    "ai-agent"
+  ],
+  "homepage": "https://roboparts.cc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lm203688/agenticros-skill-roboparts.git"
+  },
+  "bugs": "https://github.com/lm203688/agenticros-skill-roboparts/issues",
+  "author": "RoboParts (https://roboparts.cc)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.32.0"
+  },
+  "peerDependencies": {
+    "@agenticros/agenticros": "^0.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@agenticros/agenticros": {
+      "optional": true
+    }
+  },
+  "agenticros": {
+    "id": "roboparts",
+    "displayName": "RoboParts Compatibility",
+    "description": "Vendor-neutral robot parts compatibility registry — 865 entities across 20 categories, 4D compatibility checks (protocol/electrical/mechanical/software), BOM validation, URDF linting, and multi-agent review.",
+    "categories": ["manipulation", "search", "telemetry"],
+    "capabilities": [
+      {
+        "id": "search_components",
+        "verb": "search",
+        "description": "Search 865 robot component entities by keyword and/or category across 20 categories (actuators, sensors, chips, platforms, grippers, etc.).",
+        "inputs": { "keyword": "string", "category": "string", "limit": "number" },
+        "outputs": { "results": "object[]" }
+      },
+      {
+        "id": "get_component_detail",
+        "verb": "lookup",
+        "description": "Get full detail of a single component by ID, including source tier, confidence, mechanical interface, standard conformance, and data quality.",
+        "inputs": { "id": "string" },
+        "outputs": { "component": "object" }
+      },
+      {
+        "id": "check_compatibility",
+        "verb": "check_compatibility",
+        "description": "Check 4D compatibility (protocol / electrical / mechanical / software-ROS2) between two components. Returns per-dimension verdicts with evidence and uncertainty flags.",
+        "inputs": { "component1_id": "string", "component2_id": "string" },
+        "outputs": { "verdicts": "object" }
+      },
+      {
+        "id": "compare_components",
+        "verb": "compare",
+        "description": "Side-by-side comparison of 2-6 components on key parameters (torque, speed, voltage, protocol, interface, weight, price).",
+        "inputs": { "ids": "string[]" },
+        "outputs": { "comparison": "object" }
+      },
+      {
+        "id": "recommend_for_application",
+        "verb": "recommend",
+        "description": "Recommend component candidates for an application scenario (humanoid, quadruped, robot_arm, amr, industrial) with optional budget filter.",
+        "inputs": { "application": "string", "budget": "number", "count": "number" },
+        "outputs": { "recommendations": "object" }
+      },
+      {
+        "id": "get_parameter_semantics",
+        "verb": "lookup",
+        "description": "Retrieve parameter semantic definitions — same field (e.g. torque, speed) can mean different things across vendors (19 torque variants, 37 speed variants).",
+        "outputs": { "semantics": "object" }
+      },
+      {
+        "id": "bom_compatibility_check",
+        "verb": "check_bom",
+        "description": "Pairwise compatibility matrix for a BOM (bill of materials). Input component IDs, get every pair's protocol/electrical/mechanical/software verdict.",
+        "inputs": { "component_ids": "string[]" },
+        "outputs": { "matrix": "object" }
+      },
+      {
+        "id": "semantic_search",
+        "verb": "search",
+        "description": "Natural-language semantic search over component entities using offline TF-IDF vector index (zero external model, zero data exfiltration).",
+        "inputs": { "query": "string", "k": "number" },
+        "outputs": { "results": "object[]" }
+      },
+      {
+        "id": "get_standard_audit",
+        "verb": "audit",
+        "description": "Standard conformance audit — cross-validate entity declarations against known ISO/ANSI standards registry. Returns coverage, gaps, and conflicts.",
+        "inputs": { "scope": "string" },
+        "outputs": { "audit": "object" }
+      },
+      {
+        "id": "review_compatibility",
+        "verb": "review",
+        "description": "Multi-agent quality-assurance review of compatibility between two parts. Worker layer executes 4D verdict; Governor layer independently reviews for correctness and data quality.",
+        "inputs": { "component1_id": "string", "component2_id": "string" },
+        "outputs": { "review": "object" }
+      },
+      {
+        "id": "lint_urdf",
+        "verb": "lint",
+        "description": "Static compatibility check of URDF XML — validates 10 categories of issues (missing links, invalid joints, duplicate names, missing inertials, etc.).",
+        "inputs": { "urdf_xml": "string", "check_level": "string" },
+        "outputs": { "report": "object" }
+      }
+    ]
+  }
+}
