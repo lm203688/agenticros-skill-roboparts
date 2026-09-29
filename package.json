@@ -10,6 +10,10 @@
     "README.md",
     "LICENSE"
   ],
+  "scripts": {
+    "build": "node --check index.js && node --check lib/mcp-client.js && echo \"Build OK\"",
+    "test": "node -e \"import {tools} from './index.js'; console.log(tools.length + ' tools')\""
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +30,7 @@
   "homepage": "https://roboparts.cc",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lm203688/agenticros-skill-roboparts.git"
+    "url": "https://github.com/lm203688/agenticros-skill-roboparts.git"
   },
   "bugs": "https://github.com/lm203688/agenticros-skill-roboparts/issues",
   "author": "RoboParts (https://roboparts.cc)",
@@ -50,6 +54,8 @@
     "displayName": "RoboParts Compatibility",
     "description": "Vendor-neutral robot parts compatibility registry — 865 entities across 20 categories, 4D compatibility checks (protocol/electrical/mechanical/software), BOM validation, URDF linting, and multi-agent review.",
     "categories": ["manipulation", "search", "telemetry"],
+    "screenshots": ["docs/screenshot.svg"],
+    "demoVideoUrl": "https://roboparts.cc",
     "capabilities": [
       {
         "id": "search_components",

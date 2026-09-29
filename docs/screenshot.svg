@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" rx="12" fill="#0b1020"/>
+  <rect x="0" y="0" width="800" height="40" rx="12" fill="#141b30"/>
+  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="20" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <text x="400" y="130" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#37e0a6">RoboParts</text>
+  <text x="400" y="170" text-anchor="middle" font-family="monospace" font-size="16" fill="#5b9dff">865 entities · 20 categories · 4D compatibility</text>
+  <rect x="60" y="210" width="200" height="40" rx="8" fill="#141b30" stroke="#233" stroke-width="1"/>
+  <text x="160" y="235" text-anchor="middle" font-family="monospace" font-size="12" fill="#8a96b0">search_components</text>
+  <rect x="300" y="210" width="200" height="40" rx="8" fill="#141b30" stroke="#233" stroke-width="1"/>
+  <text x="400" y="235" text-anchor="middle" font-family="monospace" font-size="12" fill="#8a96b0">check_compatibility</text>
+  <rect x="540" y="210" width="200" height="40" rx="8" fill="#141b30" stroke="#233" stroke-width="1"/>
+  <text x="640" y="235" text-anchor="middle" font-family="monospace" font-size="12" fill="#8a96b0">lint_urdf</text>
+  <rect x="60" y="270" width="680" height="30" rx="6" fill="#141b30" stroke="#233" stroke-width="1"/>
+  <text x="400" y="290" text-anchor="middle" font-family="monospace" font-size="11" fill="#37e0a6">protocol · electrical · mechanical · software</text>
+  <text x="400" y="350" text-anchor="middle" font-family="monospace" font-size="12" fill="#5b9dff">roboparts.cc · CC BY 4.0 · MIT</text>
+</svg>
